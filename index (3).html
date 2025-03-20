@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hunz World</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color:#400;
+    }
+    header {
+      
+      color: #400;
+      padding: 1rem 0;
+      text-align:left;
+      margin-left:23px;
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+      padding: 20px;
+    }
+    .post {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+      display: flex;
+      flex-direction:row;
+    }
+    .post h2 {
+      color: #401;
+      font-family: Times New Roman;
+      margin:0;
+    }
+    .comment-form {
+      margin-top: 20px;
+    }
+    .comments {
+      margin-top: 20px;
+    }
+    .comment {
+      background: #f4f4f4;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+    }
+    img{
+      width:330px;
+      border:2px white;
+      border-radius:14px;
+    }
+     .image-container {
+            position: relative;
+            width: 40%; /* Adjust the width as needed */
+        }
+
+        .image-container img {
+            width: 100%;
+        }
+
+        .overlay-text {
+            position: absolute;
+            top: 30%; /* Adjust the position */
+            left: 40%; /* Adjust the position */
+            transform: translate(-50%, -40%);
+            color: white;
+            font-size: 24px;
+            /* Semi-transparent background */
+            padding: 10px;
+            border-radius: 15px;
+        .hidden-content {
+      display: none;
+        }
+      
+        .navbar {
+          display: flex;
+          background-color: #400;
+          overflow: hidden;
+          justify-content: space-around;
+          padding: 1em 0;
+       }
+        .navbar a {
+          color: white;
+          text-decoration: none;
+          padding: 0.5em 1em;
+       } 
+        .navbar a:hover {
+          background-color: #575757;
+          border-radius: 5px;
+       }
+        .navbar .brand {
+          font-weight: bold;
+       }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Interactive Blog</h1>
+      <div class="navbar">
+        <a href="#" class="brand">Hunz</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+   </div>
+  </header>
+  <div class="container">
+    
+    <div class="post">
+      <h2>First Blog Post</h2>
+      <p>Welcome to the blog! This is where the journey begins.</p>
+      <img src="https://images.unsplash.com/photo-1591779051696-1c3fa1469a79?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D"/>
+      <aside></aside>
+    </div> 
+      <div class="About us">
+      <h2>About us</h2>
+      <p>We post mazing and interesting facts</p>
+      <img src="https://images.unsplash.com/photo-1720884413532-59289875c3e1?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZnJlZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D"width=400px/>
+       <div id="extraContent" class="hidden-content">
+    <p>This is the additional content that was hidden.</p>
+  </div>
+  <button onclick="toggleContent()">Read More</button>
+      
+    </div>  
+      
+       <div class="image-container">
+        <img src="https://images.unsplash.com/photo-1710609942195-b9dab8f48fc6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZyZWUlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D" alt="Beautiful scenery">
+        <div class="overlay-text">Most people remain poor because they focus on the work over the results!</div>
+    </div> 
+      
+      <div class="comments">
+        <h3>Comments</h3>
+        <div id="comment-list"></div>
+      </div>
+      <div class="comment-form">
+        <h3>Leave a Comment</h3>
+        <input type="text" id="comment-input" placeholder="Type your comment here" />
+        <button onclick="addComment()">Submit</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    function addComment() {
+      const commentInput = document.getElementById('comment-input');
+      const commentList = document.getElementById('comment-list');
+      
+      if (commentInput.value.trim() === "") {
+        alert("Please enter a comment!");
+        return;
+      }
+      
+      const comment = document.createElement('div');
+      comment.className = 'comment';
+      comment.textContent = commentInput.value;
+      commentList.appendChild(comment);
+      commentInput.value = '';
+    }
+     function toggleContent() {
+      const content = document.getElementById("extraContent");
+      const button = document.querySelector("button");
+      if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+        button.textContent = "Read Less";
+      } else {
+        content.style.display = "none";
+        button.textContent = "Read More";
+      }
+    }
+  </script>
+</body>
+</html>
